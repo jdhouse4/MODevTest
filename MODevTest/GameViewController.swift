@@ -9,6 +9,10 @@
 import UIKit
 import QuartzCore
 import SceneKit
+import SpriteKit
+
+
+
 
 class GameViewController: UIViewController {
 
@@ -16,7 +20,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         // create a new scene
-        let scene = SCNScene(named: "art.scnassets/cube.scn")!
+        let scene = SCNScene(named: "art.scnassets/cubes.scn")!
         
         // create and add a camera to the scene
         let cameraNode = SCNNode()
@@ -24,7 +28,7 @@ class GameViewController: UIViewController {
         scene.rootNode.addChildNode(cameraNode)
         
         // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 3)
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 8)
         
         // create and add a light to the scene
         let lightNode = SCNNode()
@@ -44,13 +48,31 @@ class GameViewController: UIViewController {
         scene.rootNode.addChildNode(ambientLightNode)
         
         // retrieve the ship node
-        let cube = scene.rootNode.childNode(withName: "Cube_Blender", recursively: true)!
+        let cubes = scene.rootNode.childNode(withName: "Cubes", recursively: true)!
 
-        let cubeNode        = SCNNode()
-        cubeNode.geometry   = SCNBox()
-    
+        let scnCubeNode        = SCNNode()
+        scnCubeNode.geometry   = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
+        scnCubeNode.geometry!.firstMaterial?.lightingModel = .physicallyBased
+        scnCubeNode.geometry!.firstMaterial?.diffuse.contents = UIColor.red
+        scnCubeNode.geometry!.firstMaterial?.metalness.contents = 1.0
+        scnCubeNode.geometry!.firstMaterial?.roughness.contents = 0
+        scnCubeNode.simdPosition = simd_float3(x: 0.0, y: 0.0, z: 0.0)
+        scene.rootNode.addChildNode(scnCubeNode)
 
-        
+
+        // Create SKScene
+        let overlayScene = SKScene(size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
+//        let overlayScene = SKScene(size: CGSize(width: 1000, height: 1000))
+
+
+        // Add-in SKLabelNodes for the cubes
+        let scnCubeText = SKLabelNode(fontNamed: "Helvetica")
+        scnCubeText.text = "Rendering Issues"
+        scnCubeText.fontSize = 36
+        scnCubeText.fontColor = SKColor.black
+        scnCubeText.position = CGPoint(x: 180.0, y: 100.0)
+        overlayScene.addChild(scnCubeText)
+
         // animate the 3d object
         //cube.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
         
@@ -59,7 +81,10 @@ class GameViewController: UIViewController {
         
         // set the scene to the view
         scnView.scene = scene
-        
+
+        // Add overlayScene to scene
+        scnView.overlaySKScene = overlayScene
+
         // allows the user to manipulate the camera
         scnView.allowsCameraControl = true
         
