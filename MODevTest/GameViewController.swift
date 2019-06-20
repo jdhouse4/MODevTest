@@ -30,15 +30,15 @@ class GameViewController: UIViewController {
         // place the camera
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 8)
         
-        // create and add a light to the scene
-        let lightNode = SCNNode()
-        lightNode.light = SCNLight()
-        lightNode.light!.type = .directional
-        lightNode.light!.intensity = 1000.0
-        lightNode.light!.categoryBitMask = 2
-        lightNode.light!.castsShadow = true
-        lightNode.position = SCNVector3(x: 0, y: 0, z: 10)
-        scene.rootNode.addChildNode(lightNode)
+        // Create and add a light to the scene
+        let omniLightNode = SCNNode()
+        omniLightNode.light = SCNLight()
+        omniLightNode.light!.type = .omni
+        omniLightNode.light!.intensity = 1000.0
+        omniLightNode.light!.categoryBitMask = 2
+        omniLightNode.light!.castsShadow = true
+        omniLightNode.position = SCNVector3(x: 0, y: 0, z: 10)
+        scene.rootNode.addChildNode(omniLightNode)
         
         // create and add an ambient light to the scene
         let ambientLightNode = SCNNode()
@@ -67,10 +67,10 @@ class GameViewController: UIViewController {
 
         // Add-in SKLabelNodes for the cubes
         let scnCubeText = SKLabelNode(fontNamed: "Helvetica")
-        scnCubeText.text = "Rendering Issues"
-        scnCubeText.fontSize = 36
+        scnCubeText.text = "Light Rendering Issues"
+        scnCubeText.fontSize = 24
         scnCubeText.fontColor = SKColor.black
-        scnCubeText.position = CGPoint(x: 180.0, y: 100.0)
+        scnCubeText.position = CGPoint(x: 190.0, y: 100.0)
         overlayScene.addChild(scnCubeText)
 
         // animate the 3d object
