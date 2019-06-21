@@ -131,6 +131,8 @@ class GameViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         scnView.addGestureRecognizer(tapGesture)
     }
+
+    
     
     @objc
     func handleTap(_ gestureRecognize: UIGestureRecognizer) {
@@ -141,7 +143,6 @@ class GameViewController: UIViewController {
         // check what nodes are tapped
         let p = gestureRecognize.location(in: self.view)
 
-//        let hitResults = scnOverlayScene!.hitTest(p, options: [:])
         let hitResult = scnOverlayScene.convertPoint(fromView: p)
 
         let hitNode = scnOverlayScene.atPoint(hitResult)
@@ -155,29 +156,6 @@ class GameViewController: UIViewController {
             ])
 
             lightBulbImageNode.run(lightAction)
-
-            guard let path = Bundle.main.path(forResource: "light_switch", ofType: "mp3") else {
-                print("The path could not be created.")
-                return
-            }
-
-            let fileManager = FileManager.default
-            if fileManager.fileExists(atPath: path)
-            {
-                print("Great news! Your sound file \"light_switch.mp3\" exists.")
-            }
-            else
-            {
-                print("Your file \"ligh_switch.mp3\" isn't visible even though it's in the bundle.")
-            }
-
-            // Play a sound
-            guard let soundFileURL = Bundle.main.url(forResource: "click", withExtension: "caf") else {
-                print("Oopsie, no sound file \"click.caf\" in the bundle...even though it's there!")
-                return
-            }
-            print("Sound file \"click.caf\" loaded: \(soundFileURL.relativeString)")
-
 
             // Change the light type
             lightIndex += 1
@@ -205,71 +183,22 @@ class GameViewController: UIViewController {
                 lightTextNode.text = "Directional"
             }
         }
-
-
-        /*
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result = hitResults[0]
-            
-            // get its material
-            let material = result.node.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.animationDuration = 0.5
-            
-            // on completion - unhighlight
-            SCNTransaction.completionBlock = {
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-                
-                material.emission.contents = UIColor.black
-                
-                SCNTransaction.commit()
-            }
-            
-            material.emission.contents = UIColor.red
-            
-            SCNTransaction.commit()
-        }
-         */
     }
-    /*
-     - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-     {
-     UITouch *touch = [touches anyObject];
 
-     //test if we hit the camera button
-     SKScene *scene = self.overlaySKScene;
-     CGPoint p = [touch locationInView:self];
-     p = [scene convertPointFromView:p];
-     SKNode *node = [scene nodeAtPoint:p];
 
-     if ([node.name isEqualToString:@"camera"]) {
-     //play a sound
-     [node runAction:[SKAction playSoundFileNamed:@"click.caf" waitForCompletion:NO]];
 
-     //change the point of view
-     [self changePointOfView];
-     return;
-     }
-
-     //update the total number of touches on screen
-     NSSet *allTouches = [event allTouches];
-     _touchCount = [allTouches count];
-     }
-     */
-    
     override var shouldAutorotate: Bool {
         return true
     }
-    
+
+
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
+
+
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
