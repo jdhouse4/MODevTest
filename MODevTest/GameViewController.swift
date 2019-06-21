@@ -106,9 +106,6 @@ class GameViewController: UIViewController {
                                          y:  lightBulbImageNode.position.y + lightBulbImageNode.frame.size.height / 2.0)
         overlayScene.addChild(lightTextNode)
 
-        // animate the 3d object
-        //cube.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
-        
         // retrieve the SCNView
         scnView = self.view as! SCNView
         
@@ -137,7 +134,6 @@ class GameViewController: UIViewController {
     @objc
     func handleTap(_ gestureRecognize: UIGestureRecognizer) {
         // retrieve the SCNView
-//        let scnView = self.view as! SCNView
         let scnOverlayScene = overlayScene
         
         // check what nodes are tapped
