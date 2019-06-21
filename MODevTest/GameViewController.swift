@@ -16,6 +16,11 @@ import SpriteKit
 
 class GameViewController: UIViewController {
 
+    var overlayScene: SKScene = SKScene()
+    var lightTextNode: SKLabelNode = SKLabelNode()
+    var lightNode: SCNNode = SCNNode()
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,17 +33,17 @@ class GameViewController: UIViewController {
         scene.rootNode.addChildNode(cameraNode)
         
         // place the camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 8)
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
         
         // Create and add a light to the scene
-        let omniLightNode = SCNNode()
-        omniLightNode.light = SCNLight()
-        omniLightNode.light!.type = .omni
-        omniLightNode.light!.intensity = 1000.0
-        omniLightNode.light!.categoryBitMask = 2
-        omniLightNode.light!.castsShadow = true
-        omniLightNode.position = SCNVector3(x: 0, y: 0, z: 10)
-        scene.rootNode.addChildNode(omniLightNode)
+        let lightNode = SCNNode()
+        lightNode.light = SCNLight()
+        lightNode.light!.type = .directional
+        lightNode.light!.intensity = 1000.0
+        lightNode.light!.categoryBitMask = 2
+        lightNode.light!.castsShadow = true
+        lightNode.position = SCNVector3(x: 0, y: 0, z: 8)
+        scene.rootNode.addChildNode(lightNode)
         
         // create and add an ambient light to the scene
         let ambientLightNode = SCNNode()
@@ -48,7 +53,7 @@ class GameViewController: UIViewController {
         scene.rootNode.addChildNode(ambientLightNode)
         
         // retrieve the ship node
-        let cubes = scene.rootNode.childNode(withName: "Cubes", recursively: true)!
+        _ = scene.rootNode.childNode(withName: "Cubes", recursively: true)!
 
         let scnCubeNode        = SCNNode()
         scnCubeNode.geometry   = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
@@ -61,17 +66,34 @@ class GameViewController: UIViewController {
 
 
         // Create SKScene
-        let overlayScene = SKScene(size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
+        overlayScene = SKScene(size: CGSize(width: self.view.frame.width, height: self.view.frame.height))
 //        let overlayScene = SKScene(size: CGSize(width: 1000, height: 1000))
 
 
-        // Add-in SKLabelNodes for the cubes
-        let scnCubeText = SKLabelNode(fontNamed: "Helvetica")
-        scnCubeText.text = "Light Rendering Issues"
-        scnCubeText.fontSize = 24
-        scnCubeText.fontColor = SKColor.black
-        scnCubeText.position = CGPoint(x: 190.0, y: 100.0)
-        overlayScene.addChild(scnCubeText)
+        // Add-in SKLabelNode for the title
+        let headerTextNode = SKLabelNode(fontNamed: "HelveticaNeue")
+        headerTextNode.text = "Light Rendering Issues"
+        headerTextNode.fontSize = 24
+        headerTextNode.fontColor = SKColor.black
+        headerTextNode.position = CGPoint(x: 190.0, y: 725.0)
+        overlayScene.addChild(headerTextNode)
+
+        // Add-in SKLabelNode for the light currently in use
+        lightTextNode = SKLabelNode(fontNamed: "HelveticaNeue")
+        lightTextNode.text = "Directional"
+        lightTextNode.fontSize = 20
+        lightTextNode.fontColor = .black
+        lightTextNode.position = CGPoint(x: 180, y: 150)
+        overlayScene.addChild(lightTextNode)
+
+
+        //Add-in the SKSpriteNode for the button to change the light type
+        let lightImage = SKSpriteNode(imageNamed: "lightbulb")
+        lightImage.name = "light"
+        lightImage.xScale = 2.0
+        lightImage.yScale = 2.0
+        lightImage.position = CGPoint(x: 190, y: 100)
+        overlayScene.addChild(lightImage)
 
         // animate the 3d object
         //cube.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
