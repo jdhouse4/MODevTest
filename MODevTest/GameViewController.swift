@@ -135,13 +135,11 @@ class GameViewController: UIViewController {
     @objc
     func handleTap(_ gestureRecognize: UIGestureRecognizer) {
         // retrieve the SCNView
-//        let scnView = self.view as! SCNView
         let scnOverlayScene = overlayScene
         
         // check what nodes are tapped
         let p = gestureRecognize.location(in: self.view)
 
-//        let hitResults = scnOverlayScene!.hitTest(p, options: [:])
         let hitResult = scnOverlayScene.convertPoint(fromView: p)
 
         let hitNode = scnOverlayScene.atPoint(hitResult)
@@ -205,71 +203,22 @@ class GameViewController: UIViewController {
                 lightTextNode.text = "Directional"
             }
         }
-
-
-        /*
-        // check that we clicked on at least one object
-        if hitResults.count > 0 {
-            // retrieved the first clicked object
-            let result = hitResults[0]
-            
-            // get its material
-            let material = result.node.geometry!.firstMaterial!
-            
-            // highlight it
-            SCNTransaction.begin()
-            SCNTransaction.animationDuration = 0.5
-            
-            // on completion - unhighlight
-            SCNTransaction.completionBlock = {
-                SCNTransaction.begin()
-                SCNTransaction.animationDuration = 0.5
-                
-                material.emission.contents = UIColor.black
-                
-                SCNTransaction.commit()
-            }
-            
-            material.emission.contents = UIColor.red
-            
-            SCNTransaction.commit()
-        }
-         */
     }
-    /*
-     - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
-     {
-     UITouch *touch = [touches anyObject];
 
-     //test if we hit the camera button
-     SKScene *scene = self.overlaySKScene;
-     CGPoint p = [touch locationInView:self];
-     p = [scene convertPointFromView:p];
-     SKNode *node = [scene nodeAtPoint:p];
 
-     if ([node.name isEqualToString:@"camera"]) {
-     //play a sound
-     [node runAction:[SKAction playSoundFileNamed:@"click.caf" waitForCompletion:NO]];
 
-     //change the point of view
-     [self changePointOfView];
-     return;
-     }
-
-     //update the total number of touches on screen
-     NSSet *allTouches = [event allTouches];
-     _touchCount = [allTouches count];
-     }
-     */
-    
     override var shouldAutorotate: Bool {
         return true
     }
-    
+
+
+
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
+
+
+
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
         if UIDevice.current.userInterfaceIdiom == .phone {
             return .allButUpsideDown
