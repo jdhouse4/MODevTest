@@ -59,7 +59,7 @@ class GameViewController: UIViewController {
         scene.rootNode.addChildNode(ambientLightNode)
         
         // retrieve the ship node
-        _ = scene.rootNode.childNode(withName: "Cubes", recursively: true)!
+        let cubesNode = scene.rootNode.childNode(withName: "Cubes", recursively: true)!
 
         let scnCubeNode        = SCNNode()
         scnCubeNode.geometry   = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
@@ -68,7 +68,9 @@ class GameViewController: UIViewController {
         scnCubeNode.geometry!.firstMaterial?.metalness.contents = 1.0
         scnCubeNode.geometry!.firstMaterial?.roughness.contents = 0
         scnCubeNode.simdPosition = simd_float3(x: 0.0, y: 0.0, z: 0.0)
-        scene.rootNode.addChildNode(scnCubeNode)
+        cubesNode.addChildNode(scnCubeNode)
+
+        scene.rootNode.addChildNode(cubesNode)
 
 
         // Find the center of the screen
@@ -107,7 +109,7 @@ class GameViewController: UIViewController {
         overlayScene.addChild(lightTextNode)
 
         // animate the 3d object
-        //cube.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 1)))
+//        cubesNode.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: 2, z: 0, duration: 2)))
         
         // retrieve the SCNView
         scnView = self.view as! SCNView
