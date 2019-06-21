@@ -13,6 +13,8 @@
 		E6C17C3022B81A960008B1EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C17C2E22B81A960008B1EF /* Main.storyboard */; };
 		E6C17C3222B81A980008B1EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E6C17C3122B81A980008B1EF /* Assets.xcassets */; };
 		E6C17C3522B81A980008B1EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E6C17C3322B81A980008B1EF /* LaunchScreen.storyboard */; };
+		E6D4817222BD750900430E62 /* light_switch.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E6D4817122BD750900430E62 /* light_switch.mp3 */; };
+		E6D4817322BD7BE100430E62 /* click.caf in Resources */ = {isa = PBXBuildFile; fileRef = E6D4817022BD6E5E00430E62 /* click.caf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		E6C17C3122B81A980008B1EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E6C17C3422B81A980008B1EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E6C17C3622B81A980008B1EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E6D4817022BD6E5E00430E62 /* click.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = click.caf; sourceTree = "<group>"; };
+		E6D4817122BD750900430E62 /* light_switch.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = light_switch.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +60,9 @@
 		E6C17C2722B81A960008B1EF /* MODevTest */ = {
 			isa = PBXGroup;
 			children = (
+				E6D4817122BD750900430E62 /* light_switch.mp3 */,
 				E6C17C2822B81A960008B1EF /* AppDelegate.swift */,
+				E6D4817022BD6E5E00430E62 /* click.caf */,
 				E6C17C2A22B81A960008B1EF /* art.scnassets */,
 				E6C17C2C22B81A960008B1EF /* GameViewController.swift */,
 				E6C17C2E22B81A960008B1EF /* Main.storyboard */,
@@ -126,7 +132,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				E6C17C2B22B81A960008B1EF /* art.scnassets in Resources */,
+				E6D4817222BD750900430E62 /* light_switch.mp3 in Resources */,
 				E6C17C3522B81A980008B1EF /* LaunchScreen.storyboard in Resources */,
+				E6D4817322BD7BE100430E62 /* click.caf in Resources */,
 				E6C17C3222B81A980008B1EF /* Assets.xcassets in Resources */,
 				E6C17C3022B81A960008B1EF /* Main.storyboard in Resources */,
 			);
