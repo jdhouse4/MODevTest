@@ -150,11 +150,26 @@ class GameViewController: UIViewController {
         {
             // Highlight the lightBulbImageNode
             let lightAction = SKAction.sequence(
-                [SKAction.scaleX(to: 0, duration: 0.1),
-                 SKAction.scale(to: 2, duration: 0.1),
+                [SKAction.scaleX(to: 0, duration: 0.05),
+                 SKAction.scale(to: 2, duration: 0.05),
             ])
 
             lightBulbImageNode.run(lightAction)
+
+            guard let path = Bundle.main.path(forResource: "light_switch", ofType: "mp3") else {
+                print("The path could not be created.")
+                return
+            }
+
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: path)
+            {
+                print("Great news! Your sound file \"light_switch.mp3\" exists.")
+            }
+            else
+            {
+                print("Your file \"ligh_switch.mp3\" isn't visible even though it's in the bundle.")
+            }
 
             // Play a sound
             guard let soundFileURL = Bundle.main.url(forResource: "click", withExtension: "caf") else {
@@ -163,8 +178,6 @@ class GameViewController: UIViewController {
             }
             print("Sound file \"click.caf\" loaded: \(soundFileURL.relativeString)")
 
-            // New Bug; This doesn't work, yet the file is in the bundle!
-//            let soundAction = SKAction.playSoundFileNamed("light_switch.mp3", waitForCompletion: false)
 
             // Change the light type
             lightIndex += 1
