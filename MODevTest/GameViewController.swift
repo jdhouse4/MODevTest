@@ -60,19 +60,8 @@ class GameViewController: UIViewController {
         scnCubeTexturedWithZeroRoughnessNode.geometry!.firstMaterial?.metalness.contents = 1.0
         scnCubeTexturedWithZeroRoughnessNode.geometry!.firstMaterial?.roughness.contents = 0.0
         scnCubeTexturedWithZeroRoughnessNode.categoryBitMask = 2
-        scnCubeTexturedWithZeroRoughnessNode.simdPosition = simd_float3(x: 0.75, y: 1.25, z: 0.0)
+        scnCubeTexturedWithZeroRoughnessNode.simdPosition = simd_float3(x: 0.75, y: 1.875, z: 0.0)
         scene.rootNode.addChildNode(scnCubeTexturedWithZeroRoughnessNode)
-
-
-        let scnCubeColorWithRoughnessNode        = SCNNode()
-        scnCubeColorWithRoughnessNode.geometry   = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
-        scnCubeColorWithRoughnessNode.geometry!.firstMaterial?.lightingModel      = .physicallyBased
-        scnCubeColorWithRoughnessNode.geometry!.firstMaterial?.diffuse.contents   = UIColor.red
-        scnCubeColorWithRoughnessNode.geometry!.firstMaterial?.metalness.contents = 1.0
-        scnCubeColorWithRoughnessNode.geometry!.firstMaterial?.roughness.contents = 0.5
-        scnCubeColorWithRoughnessNode.categoryBitMask = 2
-        scnCubeColorWithRoughnessNode.simdPosition = simd_float3(x: 0.75, y: 0.0, z: 0.0)
-        scene.rootNode.addChildNode(scnCubeColorWithRoughnessNode)
 
 
         let scnCubeTexturedWithRoughnessNode        = SCNNode()
@@ -82,8 +71,30 @@ class GameViewController: UIViewController {
         scnCubeTexturedWithRoughnessNode.geometry!.firstMaterial?.metalness.contents = 1.0
         scnCubeTexturedWithRoughnessNode.geometry!.firstMaterial?.roughness.contents = 0.5
         scnCubeTexturedWithRoughnessNode.categoryBitMask = 2
-        scnCubeTexturedWithRoughnessNode.simdPosition = simd_float3(x: 0.75, y: -1.25, z: 0.0)
+        scnCubeTexturedWithRoughnessNode.simdPosition = simd_float3(x: 0.75, y: 0.625, z: 0.0)
         scene.rootNode.addChildNode(scnCubeTexturedWithRoughnessNode)
+
+
+        let scnCubeColorWithZeroRoughnessNode        = SCNNode()
+        scnCubeColorWithZeroRoughnessNode.geometry   = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
+        scnCubeColorWithZeroRoughnessNode.geometry!.firstMaterial?.lightingModel = .physicallyBased
+        scnCubeColorWithZeroRoughnessNode.geometry!.firstMaterial?.diffuse.contents = UIImage(named: "wood")
+        scnCubeColorWithZeroRoughnessNode.geometry!.firstMaterial?.metalness.contents = 1.0
+        scnCubeColorWithZeroRoughnessNode.geometry!.firstMaterial?.roughness.contents = 0.0
+        scnCubeColorWithZeroRoughnessNode.categoryBitMask = 2
+        scnCubeColorWithZeroRoughnessNode.simdPosition = simd_float3(x: 0.75, y: -0.625, z: 0.0)
+        scene.rootNode.addChildNode(scnCubeColorWithZeroRoughnessNode)
+
+
+        let scnCubeColorWithRoughnessNode        = SCNNode()
+        scnCubeColorWithRoughnessNode.geometry   = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
+        scnCubeColorWithRoughnessNode.geometry!.firstMaterial?.lightingModel      = .physicallyBased
+        scnCubeColorWithRoughnessNode.geometry!.firstMaterial?.diffuse.contents   = UIColor.red
+        scnCubeColorWithRoughnessNode.geometry!.firstMaterial?.metalness.contents = 1.0
+        scnCubeColorWithRoughnessNode.geometry!.firstMaterial?.roughness.contents = 0.5
+        scnCubeColorWithRoughnessNode.categoryBitMask = 2
+        scnCubeColorWithRoughnessNode.simdPosition = simd_float3(x: 0.75, y: -1.875, z: 0.0)
+        scene.rootNode.addChildNode(scnCubeColorWithRoughnessNode)
 
         // Find the center of the screen
         let screenCenter: CGPoint = self.view.center
