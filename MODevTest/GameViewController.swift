@@ -78,7 +78,7 @@ class GameViewController: UIViewController {
         let scnCubeColorWithZeroRoughnessNode        = SCNNode()
         scnCubeColorWithZeroRoughnessNode.geometry   = SCNBox(width: 1.0, height: 1.0, length: 1.0, chamferRadius: 0)
         scnCubeColorWithZeroRoughnessNode.geometry!.firstMaterial?.lightingModel = .physicallyBased
-        scnCubeColorWithZeroRoughnessNode.geometry!.firstMaterial?.diffuse.contents = UIImage(named: "wood")
+        scnCubeColorWithZeroRoughnessNode.geometry!.firstMaterial?.diffuse.contents = UIColor.red
         scnCubeColorWithZeroRoughnessNode.geometry!.firstMaterial?.metalness.contents = 1.0
         scnCubeColorWithZeroRoughnessNode.geometry!.firstMaterial?.roughness.contents = 0.0
         scnCubeColorWithZeroRoughnessNode.categoryBitMask = 2

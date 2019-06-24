@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E684194522BEE4170098F7A1 /* Lights_LaunchImage_iPhoneXsMax_Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E684194422BEE4170098F7A1 /* Lights_LaunchImage_iPhoneXsMax_Portrait.png */; };
+		E684194922BEE4F30098F7A1 /* Lights_LaunchImage_iPhoneXs_Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = E684194822BEE4F30098F7A1 /* Lights_LaunchImage_iPhoneXs_Portrait.png */; };
+		E684194B22BEE50C0098F7A1 /* Lights_LaunchImage_iPhoneXs_Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = E684194A22BEE50C0098F7A1 /* Lights_LaunchImage_iPhoneXs_Landscape.png */; };
 		E6C17C2922B81A960008B1EF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C17C2822B81A960008B1EF /* AppDelegate.swift */; };
 		E6C17C2B22B81A960008B1EF /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = E6C17C2A22B81A960008B1EF /* art.scnassets */; };
 		E6C17C2D22B81A960008B1EF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C17C2C22B81A960008B1EF /* GameViewController.swift */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E684194422BEE4170098F7A1 /* Lights_LaunchImage_iPhoneXsMax_Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lights_LaunchImage_iPhoneXsMax_Portrait.png; sourceTree = "<group>"; };
+		E684194822BEE4F30098F7A1 /* Lights_LaunchImage_iPhoneXs_Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lights_LaunchImage_iPhoneXs_Portrait.png; sourceTree = "<group>"; };
+		E684194A22BEE50C0098F7A1 /* Lights_LaunchImage_iPhoneXs_Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lights_LaunchImage_iPhoneXs_Landscape.png; sourceTree = "<group>"; };
 		E6C17C2522B81A960008B1EF /* MODevTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MODevTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E6C17C2822B81A960008B1EF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E6C17C2A22B81A960008B1EF /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -56,6 +62,9 @@
 		E6C17C2722B81A960008B1EF /* MODevTest */ = {
 			isa = PBXGroup;
 			children = (
+				E684194A22BEE50C0098F7A1 /* Lights_LaunchImage_iPhoneXs_Landscape.png */,
+				E684194822BEE4F30098F7A1 /* Lights_LaunchImage_iPhoneXs_Portrait.png */,
+				E684194422BEE4170098F7A1 /* Lights_LaunchImage_iPhoneXsMax_Portrait.png */,
 				E6C17C2822B81A960008B1EF /* AppDelegate.swift */,
 				E6C17C2A22B81A960008B1EF /* art.scnassets */,
 				E6C17C2C22B81A960008B1EF /* GameViewController.swift */,
@@ -125,9 +134,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E684194922BEE4F30098F7A1 /* Lights_LaunchImage_iPhoneXs_Portrait.png in Resources */,
 				E6C17C2B22B81A960008B1EF /* art.scnassets in Resources */,
 				E6C17C3522B81A980008B1EF /* LaunchScreen.storyboard in Resources */,
 				E6C17C3222B81A980008B1EF /* Assets.xcassets in Resources */,
+				E684194B22BEE50C0098F7A1 /* Lights_LaunchImage_iPhoneXs_Landscape.png in Resources */,
+				E684194522BEE4170098F7A1 /* Lights_LaunchImage_iPhoneXsMax_Portrait.png in Resources */,
 				E6C17C3022B81A960008B1EF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,10 +296,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7CCAB8L658;
 				INFOPLIST_FILE = MODevTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -295,7 +308,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.portablefrontier.MODevTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -303,10 +316,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7CCAB8L658;
 				INFOPLIST_FILE = MODevTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -314,7 +328,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.portablefrontier.MODevTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
